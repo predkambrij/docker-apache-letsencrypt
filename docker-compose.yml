@@ -1,0 +1,25 @@
+version: '2'
+services:
+    apache-letsencrypt:
+        build:
+          context: .
+        image: predkambrij/apache-letsencrypt
+        environment:
+            - DOMAINS
+            - WEBMASTER_MAIL
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - lh:/etc/letsencrypt
+            - sa:/etc/apache2/sites-available
+            - se:/etc/apache2/sites-enabled
+            - logs:/var/log/apache2
+            - www:/var/www
+volumes:
+  lh:
+  sa:
+  se:
+  logs:
+  www:
+

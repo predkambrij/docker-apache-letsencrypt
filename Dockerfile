@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.11
+FROM predkambrij/baseimage:latest
 MAINTAINER BirgerK <birger.kamp@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -16,9 +16,9 @@ CMD ["/sbin/my_init"]
 # Base setup
 RUN apt-get -y update && \
     apt-get install -q -y curl apache2 software-properties-common && \
-    add-apt-repository ppa:certbot/certbot && \
+    add-apt-repository -r ppa:certbot/certbot && \
     apt-get -y update && \
-    apt-get install -q -y python-certbot-apache && \
+    apt-get install -q -y python3-certbot-apache && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
