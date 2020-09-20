@@ -15,10 +15,10 @@ CMD ["/sbin/my_init"]
 
 # Base setup
 RUN apt-get -y update && \
-    apt-get install -q -y curl apache2 software-properties-common && \
+    apt-get install -y curl apache2 software-properties-common && \
     add-apt-repository -r ppa:certbot/certbot && \
     apt-get -y update && \
-    apt-get install -q -y python3-certbot-apache && \
+    apt-get install -y python3-certbot-apache && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
